@@ -15,13 +15,21 @@ export default class CardBack extends Component {
   }
 
   render() {
+    const { movieTitle, movieGenre, movieImbd } = this.props
+    // console.log("movieTitle: ", movieTitle)
+    // console.log("movieGenre: ", movieGenre)
+    console.log("movieImbd: ", movieImbd)
     return (
       <div className="card-back">
-        <h3 className="title"></h3>
+        <h3 className="title">{movieTitle}</h3>
         <span />
         { /* your rating element should go here -- you can invoke methods within JSX, à la: this.myMethod() */ }
+        Rating: {movieImbd !== null? movieImbd: 'No Rating Found'}
         <span />
-        <h5 className="genres"></h5>
+        <h5 className="genres">
+          Genres:
+          {movieGenre.map((genre,key) => (<li id={key}>{genre}</li>))}
+        </h5>
       </div>
     )
   }
